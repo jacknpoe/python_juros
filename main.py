@@ -4,19 +4,15 @@
 # 0.2 25/08/2023 Cálculos e testes com prints
 import Juros
 
-juros = Juros.Juros(3, True, 30)
-juros.setpagamentos(",", "0,30,60")
-juros.setpesos(",", "2,1,1")
+juros = Juros.Juros(10, True, 30)
+juros.setpagamentos(",", "0,30,60,90,120,150,180,210,240,270")
+juros.setpesos(",", "2,1,1,1,1,1,1,1,1,1")
 
 print(juros.Quantidade)
 print(juros.Composto)
 print(juros.Periodo)
-print(juros.Pagamentos[0])
-print(juros.Pagamentos[1])
-print(juros.Pagamentos[2])
-print(juros.Pesos[0])
-print(juros.Pesos[1])
-print(juros.Pesos[2])
+for i in range(juros.Quantidade):
+    print(str(juros.Pagamentos[i])+ " / " + str(juros.Pesos[i]))
 print(juros.getpesototal())
-print(juros.jurosparaacrescimo(2))
-print(juros.acrescimoparajuros(juros.jurosparaacrescimo(2), 18))
+print(juros.jurosparaacrescimo(30))
+print(juros.acrescimoparajuros(acrescimo=juros.jurosparaacrescimo(juros=30), precisao=18))
